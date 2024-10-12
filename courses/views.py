@@ -14,7 +14,7 @@ class CourseListView(generics.ListAPIView):
 
 class CourseCreateView(generics.CreateAPIView):
     serializer_class = CourseCreateSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, IsInstructorOrReadOnly]
 
     def perform_create(self, serializer):
         serializer.save(instructor=self.request.user, is_published=True)
