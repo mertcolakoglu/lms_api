@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'users',
     'courses',
     'metarials',
-    'discussions'
+    'discussions',
+    'progress',
 ]
 
 MIDDLEWARE = [
