@@ -51,3 +51,11 @@ class IsLectureInstructor(permissions.BasePermission):
             lecture = Lecture.objects.get(pk=lecture_id)
             return lecture.course.instructor == request.user
         return False
+
+from rest_framework import permissions
+
+class IsDiscussionOrCommentCreatorOrReadOnly(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        return obj.created_by == request.user

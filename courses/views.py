@@ -1,5 +1,4 @@
 from rest_framework import generics, permissions
-from rest_framework.response import Response
 from .models import Course, Enrollment
 from .serializers import CourseSerializer, CourseCreateSerializer, EnrollmentSerializer, EnrollmentCreateSerializer
 from core.permissions import IsInstructorOrReadOnly, IsEnrolled
